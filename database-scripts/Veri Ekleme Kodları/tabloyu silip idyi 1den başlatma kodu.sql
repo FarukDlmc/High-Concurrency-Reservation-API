@@ -1,0 +1,2 @@
+DELETE FROM YorumlarTURs;
+DBCC CHECKIDENT ('YorumlarTURs', RESEED, 0);

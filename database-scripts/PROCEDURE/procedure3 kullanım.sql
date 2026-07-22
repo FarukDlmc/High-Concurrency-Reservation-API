@@ -1,0 +1,1 @@
+SELECT dbo.fn_GetOtelYildizOrtalama(50) AS OrtalamaPuan

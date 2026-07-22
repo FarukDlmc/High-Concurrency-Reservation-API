@@ -1,0 +1,26 @@
+USE [TatilSeyehatdb]
+GO
+
+/****** Object:  StoredProcedure [dbo].[SP_YEDEK_ALINSIN]    Script Date: 7.01.2025 13:47:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SP_YEDEK_ALINSIN]
+AS
+BEGIN
+	DECLARE @DISK_FILE NVARCHAR(500);
+	SET 
+	@DISK_FILE=N'C:\Program Files\Microsoft SQL Server\MSSQL16.DEVELOPER_2022\MSSQL\Backup\TatilSeyehatdb'+CONVERT(NVARCHAR(8),
+	GETDATE(),112)+'_'+REPLACE(CONVERT(NVARCHAR(8),GETDATE(),108),':','_')+'.bak'
+	BACKUP DATABASE [TatilSeyehatdb] TO DISK=@DISK_FILE WITH NOFORMAT,NOINIT,
+	NAME = N'TatilSeyehatdb-Full Database Backup',SKIP,NOREWIND,NOUNLOAD,STATS=10
+
+	INSERT INTO YedekAlindi (Aciklama,Tarih)
+	VALUES ('YEDEK ÇALIÞTI',GETDATE());
+END;
+GO
+
+

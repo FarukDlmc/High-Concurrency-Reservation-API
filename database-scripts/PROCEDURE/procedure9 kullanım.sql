@@ -1,0 +1,1 @@
+EXEC sp_GetUcuslarByTarih @BaslangicTarihi = '2024-01-01', @BitisTarihi = '2024-12-31'

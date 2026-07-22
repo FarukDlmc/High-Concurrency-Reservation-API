@@ -1,0 +1,1 @@
+EXEC sp_AddKullanici @KullaniciAdi = 'Ali Veli', @Email = 'ali@örnek.com', @Sifre = '123456',@Telefon='5554667898'
