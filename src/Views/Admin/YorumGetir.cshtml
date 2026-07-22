@@ -1,0 +1,30 @@
+﻿@model TravelTripProje.Models.Sınıflar.Yorumlar
+@{
+    ViewBag.Title = "YorumGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Otel Yorumları Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("YorumGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Kullanici_ID)
+    @Html.TextBoxFor(x => x.Kullanici_ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Otel_ID)
+    @Html.TextBoxFor(x => x.Otel_ID, new { @class = "form-control"})
+    <br />
+    @Html.LabelFor(x => x.Derecelendirme)
+    @Html.TextBoxFor(x => x.Derecelendirme, new { @class = "form-control"})
+    <br />
+    @Html.LabelFor(x => x.YorumTarihi)
+    @Html.TextBoxFor(x => x.YorumTarihi, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Yorum)
+    @Html.TextAreaFor(x => x.Yorum, 15, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Yorum Güncelle</button>
+}
+

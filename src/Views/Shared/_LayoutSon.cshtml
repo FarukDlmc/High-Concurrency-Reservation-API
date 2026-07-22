@@ -1,0 +1,233 @@
+﻿
+@{
+    ViewBag.Title = "_LayoutSon";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tatil-Seyehat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/template1/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/template1/css/animate.css">
+
+    <link rel="stylesheet" href="~/template1/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/template1/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/template1/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/template1/css/aos.css">
+
+    <link rel="stylesheet" href="~/template1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/template1/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/template1/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/stl.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/menu.css")" />
+
+
+    <link rel="stylesheet" href="~/template1/css/flaticon.css">
+    <link rel="stylesheet" href="~/template1/css/icomoon.css">
+    <link rel="stylesheet" href="~/template1/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/Default/Index">TATİL<span>Seyehat Acentası</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item @((ViewBag.ActivePage == "Ana Sayfa") ? "active" : "")">
+                        <a href="@Url.Action("Index", "Default")" class="nav-link">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item @((ViewBag.ActivePage == "Otel") ? "active" : "")">
+                        <a href="@Url.Action("Index", "Otel")" class="nav-link">Otel</a>
+                    </li>
+                    <li class="nav-item @((ViewBag.ActivePage == "Tur") ? "active" : "")">
+                        <a href="@Url.Action("Index", "Tur")" class="nav-link">Tur</a>
+                    </li>
+                    <li class="nav-item @((ViewBag.ActivePage == "Araç") ? "active" : "")">
+                        <a href="#" class="nav-link">Araç</a>
+                    </li>
+                    <li class="nav-item @((ViewBag.ActivePage == "Uçak Bileti") ? "active" : "")">
+                        <a href="#" class="nav-link">Uçak Bileti</a>
+                    </li>
+                    <li class="nav-item @((ViewBag.ActivePage == "Kampanyalar") ? "active" : "")">
+                        <a href="@Url.Action("Index", "Kampanya")" class="nav-link">Kampanyalar</a>
+                    </li>
+                    <li class="nav-item @((ViewBag.ActivePage == "Hakkımızda") ? "active" : "")">
+                        <a href="@Url.Action("About", "Default")" class="nav-link">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item @((ViewBag.ActivePage == "İletişim") ? "active" : "")">
+                        <a href="@Url.Action("iletisim", "Default")" class="nav-link">İletişim</a>
+                    </li>
+                    @if (Session["AdSoyad"] != null)
+                    {
+                        <!-- Kullanıcı giriş yapmışsa AdSoyad göster -->
+                        <ul class="demo-dropdown">
+                            <li>
+                                <a href="#">
+                                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/person-male.png">
+                                    @Session["AdSoyad"]
+                                </a>
+                                <ul>
+                                    <li class="has-submenu">
+                                        <a href="#">Profil</a>
+                                        <ul class="submenu">
+                                            <li><a href="@Url.Action("Bilgilerim","Musteri")">Bilgilerim</a></li>
+                                            <li><a href="#">Rezarvasyonlarım</a></li>
+                                            <li><a href="#">Cüzdanım</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Tatil Premium</a></li>
+                                    <li class="logout"><a href="@Url.Action("Index","Default")">Çıkış Yap</a></li> @*Gitsin ama if den çıksın+li ler arası geçiş hızlı olmuş*@
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <!-- Kullanıcı giriş yapmamışsa "Kayıt Ol" göster -->
+                        <li class="nav-item cta"><a href="@Url.Action("KullaniciLogin","GirişYap")" class="nav-link">Kayıt Ol</a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class"content">
+        @RenderBody()
+    </div>
+    <footer class="ftco-footer bg-bottom" style="background-image: url('@Url.Content("~/template1/images/footer-bg.jpg")');">
+        <div>
+            <img style="margin-right:80px" src="https://img.icons8.com/color/96/fedex.png" alt="youtube-play--v2">  <span style="color:rgb(228, 200, 255)">#dahafazlatatil</span>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="py-2 d-block">
+                                    <i class="fas fa-hotel" style="margin-right: 10px;"><img width="30" height="30" src="https://img.icons8.com/android/24/3-star-hotel.png" alt="hotel"></i> Otel Ara
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 d-block">
+                                    <i class="fas fa-hotel" style="margin-right: 10px;"><img width="30" height="30" src="https://img.icons8.com/material-outlined/24/airplane-mode-on.png" alt="hotel"></i> Uçuş Ara
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 d-block">
+                                    <i class="fas fa-hotel" style="margin-right: 10px;"><img width="30" height="30" src="https://img.icons8.com/forma-bold-filled/24/around-the-globe.png" alt="hotel"></i>Tur Ara
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 d-block">
+                                    <i class="fas fa-hotel" style="margin-right: 10px;"><img width="30" height="30" src="https://img.icons8.com/material-sharp/24/car.png" alt="hotel"></i> Araç Ara
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 d-block">
+                                    <i class="fas fa-hotel" style="margin-right: 10px;"><img width="30" height="30" src="https://img.icons8.com/material/24/discount--v1.png" alt="hotel"></i> Kampanyalar
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Öne Çıkan Kategoriler</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Kış Otelleri</a></li>
+                            <li><a href="#" class="py-2 d-block">HaftaSonu Otelleri</a></li>
+                            <li><a href="#" class="py-2 d-block">Yurtdışı Turları</a></li>
+                            <li><a href="#" class="py-2 d-block">Kıbrıs Otelleri</a></li>
+                            <li><a href="#" class="py-2 d-block">Yılbaşı Otelleri</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Rezarvasyon</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Rezarvasyon Kontrol</a></li>
+                            <li><a href="#" class="py-2 d-block">Nasıl Rezarvasyon Yapılır?</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Bize Ulaşın</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Beştepe, Cumhurbaşkanlığı Blv, 06560 Yenimahalle/Ankara</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <ul class="ftco-footer-social " style="padding: 0; margin: 0; list-style-type: none;">
+                        <li style="display: inline; margin: 15px;">
+                            <p>Bizi Takip Edin</p>
+                        </li>
+                        <li style="display: inline; margin: 0;">
+                            <a href="https://www.youtube.com/">
+                                <img width="30" height="30" src="https://img.icons8.com/doodle/48/youtube-play--v2.png" alt="youtube-play--v2">
+                            </a>
+                        </li>
+                        <li style="display: inline; margin: 0;">
+                            <a href="https://www.instagram.com/">
+                                <img width="30" height="30" src="https://img.icons8.com/doodle/48/instagram-new.png" alt="instagram">
+                            </a>
+                        </li>
+                        <li style="display: inline; margin: 0;">
+                            <a href="https://twitter.com/">
+                                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/twitterx--v1.png" alt="twitter">
+                            </a>
+                        </li>
+                        <li style="display: inline; margin: 0;">
+                            <a href="https://www.facebook.com/">
+                                <img width="30" height="30" src="https://img.icons8.com/doodle/48/facebook-new.png" alt="facebook">
+                            </a>
+                        </li>
+                        <li style="display: inline; margin: 0;">
+                            <a href="https://www.linkedin.com/">
+                                <img width="30" height="30" src="https://img.icons8.com/doodle/48/linkedin--v2.png" alt="linkedin">
+                            </a>
+                        </li>
+                    </ul>
+
+                    <br />
+
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;  2024-2030
+        All rights reserved | <i class="icon-heart color-danger" aria-hidden="true"></i> by  <a href="#" target="_blank">TatilRezarvasyon.com</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    </p>
+</body>
+</html>

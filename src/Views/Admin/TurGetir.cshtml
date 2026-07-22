@@ -1,0 +1,35 @@
+﻿@model TravelTripProje.Models.Sınıflar.Tur
+@{
+    ViewBag.Title = "TurGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Otel Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("TurGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Tur_ID)
+    @Html.LabelFor(x => x.Ad)
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Kisi_Basi_Fiyat)
+    @Html.TextBoxFor(x => x.Kisi_Basi_Fiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Rota)
+    @Html.TextBoxFor(x => x.Rota, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Kampanya_ID)
+    @Html.TextBoxFor(x => x.Kampanya_ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ülke_ID)
+    @Html.TextBoxFor(x => x.ülke_ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TurImage)
+    @Html.TextBoxFor(x => x.TurImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TurKategori_ID)
+    @Html.TextBoxFor(x => x.TurKategori_ID, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Tur Güncelle</button>
+}
+

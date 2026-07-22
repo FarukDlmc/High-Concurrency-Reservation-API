@@ -1,0 +1,107 @@
+﻿@model TravelTripProje.Models.Sınıflar.OtelYorum
+@{
+    ViewBag.Title = "OtelDetay";
+    Layout = "~/Views/Shared/_LayoutSon.cshtml";
+}
+<!DOCTYPE HTML>
+<br />
+<br />
+<br />
+<html>
+<head>
+    <link href="@Url.Content("~/web2/css/bootstrap.css")" rel='stylesheet' type='text/css' />
+    <link href="@Url.Content("~/web2/css/style.css")" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/Derecelendirme.css")" />
+</head>
+<body>
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                <div class="single-grid">
+                    @foreach (var x in Model.Deger1)
+                    {
+                        <img src="@x.OtelImage" alt="" style="margin-bottom: 20px; width: 700px; height: 460px;" />
+                        <h2>@x.Ad</h2>
+                        <p>@x.Adres</p>
+                    }
+                </div>
+                @foreach (var y in Model.Deger2)
+                {
+                    <ul class="comment-list">
+                        <li>
+                            <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+                            <div class="desc">
+                                <p><strong>@y.KullaniciAdSoyad:</strong></p>
+                                <p>@y.Yorum</p>
+                                <p><small>@y.YorumTarihi.ToString("dd MMMM yyyy HH:mm")</small></p>
+                                <p>
+                                    <small>
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= y.Yildiz)
+                                            {
+                                                <span style="color: gold;">★</span> <!-- Dolu yıldız -->
+                                            }
+                                            else
+                                            {
+                                                <span style="color: lightgray;">★</span> <!-- Boş yıldız -->
+                                            }
+                                        }
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                }
+                @Html.Action("YorumYap", "Otel")
+            </div>
+
+            <div class="col-md-4 side-content">
+                <!-- RECENT POSTS -->
+                <div class="recent">
+                    <h3>SON OTELLER</h3>
+                    <ul>
+                        @foreach (var x in Model.SonOteller)
+                        {
+                            <li><a href="@Url.Action("OtelDetay", "Otel", new { id = x.Otel_ID })">@x.Ad</a></li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- RECENT COMMENTS -->
+                <div class="comments">
+                    <h3>SON YORUMLAR</h3>
+                    <ul>
+                        @if (Model.SonYorumlar != null && Model.SonYorumlar.Any())
+                        {
+
+
+                            foreach (var x in Model.SonYorumlar)
+                            {
+                                <li>
+                                    <strong>@x.KullaniciAdSoyad</strong>
+                                    dedi ki:
+                                    <p>@x.Yorum</p>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li>
+                                <p>Henüz yorum yapılmamış.</p>
+                                <p>İlk yorum yapan siz olun!</p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+

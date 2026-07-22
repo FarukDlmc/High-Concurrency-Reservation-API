@@ -1,0 +1,38 @@
+﻿@model TravelTripProje.Models.Sınıflar.Otel
+@{
+    ViewBag.Title = "OtelGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Otel Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("OtelGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Otel_ID)
+    @Html.LabelFor(x => x.Ad)
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Yatak_Sayisi)
+    @Html.TextBoxFor(x => x.Yatak_Sayisi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Banyo_Sayisi)
+    @Html.TextBoxFor(x => x.Banyo_Sayisi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Kisi_Basi_Fiyat)
+    @Html.TextBoxFor(x => x.Kisi_Basi_Fiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.OtelImage)
+    @Html.TextBoxFor(x => x.OtelImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Adres)
+    @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Kampanya_ID)
+    @Html.TextBoxFor(x => x.Kampanya_ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.OtelKategori_ID)
+    @Html.TextBoxFor(x => x.OtelKategori_ID, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Otel Güncelle</button>
+}
+

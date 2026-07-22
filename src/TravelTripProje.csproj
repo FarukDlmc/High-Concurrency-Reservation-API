@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71DCBA1A-4487-46FE-8977-AA004F025DF9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TravelTripProje</RootNamespace>
+    <AssemblyName>TravelTripProje</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44377</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\GirişYapController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KampanyaController.cs" />
+    <Compile Include="Controllers\MusteriController.cs" />
+    <Compile Include="Controllers\OtelController.cs" />
+    <Compile Include="Controllers\TurController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412141524136_FixTursSehirColumn.cs" />
+    <Compile Include="Migrations\202412141524136_FixTursSehirColumn.designer.cs">
+      <DependentUpon>202412141524136_FixTursSehirColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412151518226_FixYorumlarBlogs.cs" />
+    <Compile Include="Migrations\202412151518226_FixYorumlarBlogs.designer.cs">
+      <DependentUpon>202412151518226_FixYorumlarBlogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412151533234_RemoveBlogTable.cs" />
+    <Compile Include="Migrations\202412151533234_RemoveBlogTable.designer.cs">
+      <DependentUpon>202412151533234_RemoveBlogTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Sınıflar\AboutViewModel.cs" />
+    <Compile Include="Models\Sınıflar\Admin.cs" />
+    <Compile Include="Models\Sınıflar\AdresBlog.cs" />
+    <Compile Include="Models\Sınıflar\AnaSayfa.cs" />
+    <Compile Include="Models\Sınıflar\Arac.cs" />
+    <Compile Include="Models\Sınıflar\Context.cs" />
+    <Compile Include="Models\Sınıflar\Hakkimizda.cs" />
+    <Compile Include="Models\Sınıflar\ilce.cs" />
+    <Compile Include="Models\Sınıflar\iletisim.cs" />
+    <Compile Include="Models\Sınıflar\Kamp.cs" />
+    <Compile Include="Models\Sınıflar\Kampanyalar.cs" />
+    <Compile Include="Models\Sınıflar\KampanyaViewModel.cs" />
+    <Compile Include="Models\Sınıflar\Kullanicilar.cs" />
+    <Compile Include="Models\Sınıflar\MutfakKategori.cs" />
+    <Compile Include="Models\Sınıflar\Otel.cs" />
+    <Compile Include="Models\Sınıflar\OtelKategori.cs" />
+    <Compile Include="Models\Sınıflar\OtelYorum.cs" />
+    <Compile Include="Models\Sınıflar\Restoran.cs" />
+    <Compile Include="Models\Sınıflar\RezervasyonArac.cs" />
+    <Compile Include="Models\Sınıflar\RezervasyonKamp.cs" />
+    <Compile Include="Models\Sınıflar\RezervasyonOtel.cs" />
+    <Compile Include="Models\Sınıflar\RezervasyonRestoran.cs" />
+    <Compile Include="Models\Sınıflar\RezervasyonTur.cs" />
+    <Compile Include="Models\Sınıflar\Sehir.cs" />
+    <Compile Include="Models\Sınıflar\Tur.cs" />
+    <Compile Include="Models\Sınıflar\TurKategori.cs" />
+    <Compile Include="Models\Sınıflar\TurYorum.cs" />
+    <Compile Include="Models\Sınıflar\Yorumlar.cs" />
+    <Compile Include="Models\Sınıflar\YorumlarTUR.cs" />
+    <Compile Include="Models\Sınıflar\YorumViewModel.cs" />
+    <Compile Include="Models\Sınıflar\ülke.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="template1\about.html" />
+    <Content Include="template1\blog-single.html" />
+    <Content Include="template1\blog.html" />
+    <Content Include="template1\contact.html" />
+    <Content Include="template1\css\ajax-loader.gif" />
+    <Content Include="template1\css\animate.css" />
+    <Content Include="template1\css\aos.css" />
+    <Content Include="template1\css\bootstrap-datepicker.css" />
+    <Content Include="template1\css\bootstrap.min.css" />
+    <Content Include="template1\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="template1\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="template1\css\css\bootstrap-reboot.css" />
+    <Content Include="template1\css\css\mixins\_text-hide.css" />
+    <Content Include="template1\css\Derecelendirme.css" />
+    <Content Include="template1\css\flaticon.css" />
+    <Content Include="template1\css\icomoon.css" />
+    <Content Include="template1\css\ionicons.min.css" />
+    <Content Include="template1\css\jquery.timepicker.css" />
+    <Content Include="template1\css\magnific-popup.css" />
+    <Content Include="template1\css\menu.css" />
+    <Content Include="template1\css\open-iconic-bootstrap.min.css" />
+    <Content Include="template1\css\owl.carousel.min.css" />
+    <Content Include="template1\css\owl.theme.default.min.css" />
+    <Content Include="template1\css\slider.css" />
+    <Content Include="template1\css\style.css" />
+    <Content Include="template1\destination.html" />
+    <Content Include="template1\fonts\flaticon\backup.txt" />
+    <Content Include="template1\fonts\flaticon\font\flaticon.css" />
+    <Content Include="template1\fonts\flaticon\font\flaticon.html" />
+    <Content Include="template1\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="template1\fonts\icomoon\icomoon.svg" />
+    <Content Include="template1\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="template1\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="template1\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="template1\images\about-1.jpg" />
+    <Content Include="template1\images\about.jpg" />
+    <Content Include="template1\images\bg_1.jpg" />
+    <Content Include="template1\images\bg_2.jpg" />
+    <Content Include="template1\images\bg_3.jpg" />
+    <Content Include="template1\images\destination-1.jpg" />
+    <Content Include="template1\images\destination-10.jpg" />
+    <Content Include="template1\images\destination-11.jpg" />
+    <Content Include="template1\images\destination-12.jpg" />
+    <Content Include="template1\images\destination-2.jpg" />
+    <Content Include="template1\images\destination-3.jpg" />
+    <Content Include="template1\images\destination-4.jpg" />
+    <Content Include="template1\images\destination-5.jpg" />
+    <Content Include="template1\images\destination-6.jpg" />
+    <Content Include="template1\images\destination-7.jpg" />
+    <Content Include="template1\images\destination-8.jpg" />
+    <Content Include="template1\images\destination-9.jpg" />
+    <Content Include="template1\images\footer-bg.jpg" />
+    <Content Include="template1\images\image_1.jpg" />
+    <Content Include="template1\images\image_2.jpg" />
+    <Content Include="template1\images\image_3.jpg" />
+    <Content Include="template1\images\image_4.jpg" />
+    <Content Include="template1\images\image_5.jpg" />
+    <Content Include="template1\images\image_6.jpg" />
+    <Content Include="template1\images\loc.png" />
+    <Content Include="template1\images\person_1.jpg" />
+    <Content Include="template1\images\person_2.jpg" />
+    <Content Include="template1\images\person_3.jpg" />
+    <Content Include="template1\images\person_4.jpg" />
+    <Content Include="template1\images\place-1.jpg" />
+    <Content Include="template1\images\place-2.jpg" />
+    <Content Include="template1\images\place-3.jpg" />
+    <Content Include="template1\images\place-4.jpg" />
+    <Content Include="template1\images\tel.jpg" />
+    <Content Include="template1\index.html" />
+    <Content Include="template1\js\aos.js" />
+    <Content Include="template1\js\bootstrap-datepicker.js" />
+    <Content Include="template1\js\bootstrap.min.js" />
+    <Content Include="template1\js\google-map.js" />
+    <Content Include="template1\js\jquery-3.2.1.min.js" />
+    <Content Include="template1\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="template1\js\jquery.animateNumber.min.js" />
+    <Content Include="template1\js\jquery.easing.1.3.js" />
+    <Content Include="template1\js\jquery.magnific-popup.min.js" />
+    <Content Include="template1\js\jquery.min.js" />
+    <Content Include="template1\js\jquery.stellar.min.js" />
+    <Content Include="template1\js\jquery.waypoints.min.js" />
+    <Content Include="template1\js\main.js" />
+    <Content Include="template1\js\owl.carousel.min.js" />
+    <Content Include="template1\js\popper.min.js" />
+    <Content Include="template1\js\range.js" />
+    <Content Include="template1\js\scrollax.min.js" />
+    <Content Include="web2\about.html" />
+    <Content Include="web2\contact.html" />
+    <Content Include="web2\css\bootstrap.css" />
+    <Content Include="web2\css\style.css" />
+    <Content Include="web2\images\avatar.png" />
+    <Content Include="web2\images\icon3.png" />
+    <Content Include="web2\images\italy.jpg" />
+    <Content Include="web2\images\logo.jpg" />
+    <Content Include="web2\images\man.jpg" />
+    <Content Include="web2\images\more.png" />
+    <Content Include="web2\images\post1.jpg" />
+    <Content Include="web2\images\post2.jpg" />
+    <Content Include="web2\images\post3.jpg" />
+    <Content Include="web2\images\search.png" />
+    <Content Include="web2\index.html" />
+    <Content Include="web2\js\easing.js" />
+    <Content Include="web2\js\jquery.min.js" />
+    <Content Include="web2\js\move-top.js" />
+    <Content Include="web2\single.html" />
+    <Content Include="web2\w3layouts-License.txt" />
+    <Content Include="weblogin\css\style.css" />
+    <Content Include="weblogin\images\b4.jpg" />
+    <Content Include="weblogin\index.html" />
+    <Content Include="weblogin\w3layouts-License.txt" />
+    <Content Include="web\about.html" />
+    <Content Include="web\contact.html" />
+    <Content Include="web\css\slider.css" />
+    <Content Include="web\css\style.css" />
+    <Content Include="web\destinations.html" />
+    <Content Include="web\images\about_banner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="web\images\arrows.png" />
+    <Content Include="web\images\but.png" />
+    <Content Include="web\images\contact.png" />
+    <Content Include="web\images\dest_banner.jpg" />
+    <Content Include="web\images\flight.png" />
+    <Content Include="web\images\glass.png" />
+    <Content Include="web\images\group.png" />
+    <Content Include="web\images\hakkimizda.png" />
+    <Content Include="web\images\head_bg.jpg" />
+    <Content Include="web\images\head_bot.gif" />
+    <Content Include="web\images\img1.jpg" />
+    <Content Include="web\images\img2.jpg" />
+    <Content Include="web\images\img3.jpg" />
+    <Content Include="web\images\img4.jpg" />
+    <Content Include="web\images\key.png" />
+    <Content Include="web\images\link1-bg.gif" />
+    <Content Include="web\images\logo.png" />
+    <Content Include="web\images\pic.jpg" />
+    <Content Include="web\images\pic1.jpg" />
+    <Content Include="web\images\pic10.jpg" />
+    <Content Include="web\images\pic2.jpg" />
+    <Content Include="web\images\pic3.jpg" />
+    <Content Include="web\images\pic4.jpg" />
+    <Content Include="web\images\pic5.jpg" />
+    <Content Include="web\images\pic6.jpg" />
+    <Content Include="web\images\pic7.jpg" />
+    <Content Include="web\images\pic8.jpg" />
+    <Content Include="web\images\pic9.jpg" />
+    <Content Include="web\index.html" />
+    <Content Include="web\js\jquery.min.js" />
+    <Content Include="web\js\responsiveslides.min.js" />
+    <Content Include="web\w3layouts-License.txt" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_TestLayout.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\About.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Default\Partial1.cshtml" />
+    <Content Include="Views\Default\Partial3.cshtml" />
+    <Content Include="Views\Default\Partial4.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\YorumListesi.cshtml" />
+    <Content Include="Views\Admin\YorumGetir.cshtml" />
+    <Content Include="weblogin\fonts\Asap-Regular.ttf" />
+    <Content Include="weblogin\fonts\Audiowide-Regular.ttf" />
+    <Content Include="Views\GirişYap\Login.cshtml" />
+    <Content Include="template1\.DS_Store" />
+    <Content Include="template1\css\.DS_Store" />
+    <Content Include="template1\css\bootstrap\.DS_Store" />
+    <Content Include="template1\css\css\.DS_Store" />
+    <Content Include="template1\fonts\.DS_Store" />
+    <Content Include="template1\fonts\flaticon\.DS_Store" />
+    <Content Include="template1\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="template1\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="template1\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="template1\fonts\flaticon\font\Flaticon.woff2" />
+    <Content Include="template1\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="template1\fonts\flaticon\license\license.pdf" />
+    <Content Include="template1\fonts\icomoon\icomoon.eot" />
+    <Content Include="template1\fonts\icomoon\icomoon.ttf" />
+    <Content Include="template1\fonts\icomoon\icomoon.woff" />
+    <Content Include="template1\fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="template1\fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="template1\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="template1\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="template1\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="template1\fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="template1\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="template1\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="template1\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="template1\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="template1\images\.DS_Store" />
+    <Content Include="template1\js\.DS_Store" />
+    <Content Include="template1\prepros-6.config" />
+    <Content Include="template1\scss\.DS_Store" />
+    <Content Include="template1\scss\bootstrap\.DS_Store" />
+    <Content Include="template1\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="template1\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="template1\scss\bootstrap\bootstrap.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="template1\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="template1\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="template1\scss\bootstrap\_alert.scss" />
+    <Content Include="template1\scss\bootstrap\_badge.scss" />
+    <Content Include="template1\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="template1\scss\bootstrap\_button-group.scss" />
+    <Content Include="template1\scss\bootstrap\_buttons.scss" />
+    <Content Include="template1\scss\bootstrap\_card.scss" />
+    <Content Include="template1\scss\bootstrap\_carousel.scss" />
+    <Content Include="template1\scss\bootstrap\_close.scss" />
+    <Content Include="template1\scss\bootstrap\_code.scss" />
+    <Content Include="template1\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="template1\scss\bootstrap\_dropdown.scss" />
+    <Content Include="template1\scss\bootstrap\_forms.scss" />
+    <Content Include="template1\scss\bootstrap\_functions.scss" />
+    <Content Include="template1\scss\bootstrap\_grid.scss" />
+    <Content Include="template1\scss\bootstrap\_images.scss" />
+    <Content Include="template1\scss\bootstrap\_input-group.scss" />
+    <Content Include="template1\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="template1\scss\bootstrap\_list-group.scss" />
+    <Content Include="template1\scss\bootstrap\_media.scss" />
+    <Content Include="template1\scss\bootstrap\_mixins.scss" />
+    <Content Include="template1\scss\bootstrap\_modal.scss" />
+    <Content Include="template1\scss\bootstrap\_nav.scss" />
+    <Content Include="template1\scss\bootstrap\_navbar.scss" />
+    <Content Include="template1\scss\bootstrap\_pagination.scss" />
+    <Content Include="template1\scss\bootstrap\_popover.scss" />
+    <Content Include="template1\scss\bootstrap\_print.scss" />
+    <Content Include="template1\scss\bootstrap\_progress.scss" />
+    <Content Include="template1\scss\bootstrap\_reboot.scss" />
+    <Content Include="template1\scss\bootstrap\_root.scss" />
+    <Content Include="template1\scss\bootstrap\_spinners.scss" />
+    <Content Include="template1\scss\bootstrap\_tables.scss" />
+    <Content Include="template1\scss\bootstrap\_toasts.scss" />
+    <Content Include="template1\scss\bootstrap\_tooltip.scss" />
+    <Content Include="template1\scss\bootstrap\_transitions.scss" />
+    <Content Include="template1\scss\bootstrap\_type.scss" />
+    <Content Include="template1\scss\bootstrap\_utilities.scss" />
+    <Content Include="template1\scss\bootstrap\_variables.scss" />
+    <Content Include="template1\scss\style.scss" />
+    <Content Include="Views\Shared\_LayoutSon.cshtml" />
+    <Content Include="Views\Default\iletisim.cshtml" />
+    <Content Include="Views\GirişYap\KullaniciLogin.cshtml" />
+    <Content Include="Views\Otel\Index.cshtml" />
+    <Content Include="Views\Otel\OtelDetay.cshtml" />
+    <Content Include="Views\Tur\Index.cshtml" />
+    <Content Include="Views\Tur\TurDetay.cshtml" />
+    <Content Include="Views\Otel\YorumYap.cshtml" />
+    <Content Include="Views\Admin\YeniOtel.cshtml" />
+    <Content Include="Views\Admin\OtelGetir.cshtml" />
+    <Content Include="Views\GirişYap\SifreUnuttum.cshtml" />
+    <Content Include="Views\Tur\YorumYap.cshtml" />
+    <Content Include="Views\Kampanya\Index.cshtml" />
+    <Content Include="Views\Default\AboutOtelYorumlar.cshtml" />
+    <Content Include="Views\Musteri\Bilgilerim.cshtml" />
+    <Content Include="Views\GirişYap\KullaniciSignUp.cshtml" />
+    <Content Include="Views\Admin\TurIndex.cshtml" />
+    <Content Include="Views\Admin\YeniTur.cshtml" />
+    <Content Include="Views\Admin\TurGetir.cshtml" />
+    <Content Include="Views\Admin\TurYorumListesi.cshtml" />
+    <Content Include="Views\Admin\TurYorumGetir.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Kullanici\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202412141524136_FixTursSehirColumn.resx">
+      <DependentUpon>202412141524136_FixTursSehirColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412151518226_FixYorumlarBlogs.resx">
+      <DependentUpon>202412151518226_FixYorumlarBlogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412151533234_RemoveBlogTable.resx">
+      <DependentUpon>202412151533234_RemoveBlogTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50630</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44377/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

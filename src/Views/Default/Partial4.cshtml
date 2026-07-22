@@ -1,0 +1,32 @@
+﻿@using TravelTripProje.Models.Sınıflar;
+@model List<Otel>
+<div class="container">
+    <div class="row justify-content-center pb-4">
+        <div class="col-md-12 heading-section text-center ftco-animate">
+            <a href="https://link-adresiniz.com">
+                <h2 class="mb-4">Oteller</h2>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var x in Model)
+        {
+            <div class="col-md-4 ftco-animate">
+                <div class="project-wrap">
+                    <a href="/Otel/OtelDetay/@x.Otel_ID" class="img" style="background-image: url('@x.OtelImage');"></a>
+                    <div class="text p-4">
+                        <span class="price">@x.Kisi_Basi_Fiyat</span> 
+                        @*<span class="days">@x.Tarih</span>*@
+                        <h3><a href="/Otel/OtelDetay/@x.Otel_ID">@x.Ad</a></h3>
+                        <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p> @*bu kısım için tabloda şehir bilgisi ekleyip onu çekeriz.*@
+                        <ul>
+                            <li><span class="flaticon-shower"></span>@x.Banyo_Sayisi</li> 
+                            <li><span class="flaticon-king-size"></span>@x.Yatak_Sayisi</li>
+                        <li><span class="flaticon-mountains"></span>@(x.OtelKategori != null ? x.OtelKategori.otelKategorisi : "Kategori bilgisi bulunamadı")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

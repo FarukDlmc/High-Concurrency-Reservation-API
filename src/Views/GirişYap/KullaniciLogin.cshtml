@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content=" Master  Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/weblogin/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Cormorant+SC:300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/css/stl.css")" />
+
+</head>
+
+<body>
+    <div class="padding-all">
+        <div class="header">
+            <h1>TatilRezarvasyon'a Hoş Geldiniz</h1>
+        </div>
+
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+                @*Büyük,küçük harf uyumu veya boşluk sayısı veya şifreyi göster kısımlarını ekleyemeyi düşün*@
+                @using (Html.BeginForm("KullaniciLogin", "GirişYap", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="text" name="AdSoyad" placeholder="Adınız Soyadınız..." required="" />
+                    <input type="password" name="Sifre" class="padding" placeholder="Şifreniz..." required="" />
+                    <p class="unuttum"><a href="@Url.Action("SifreUnuttum","GirişYap")">Şifremi unuttum </a></p>
+                    <br />
+                    <input type="submit" value="Giriş Yap">
+                }
+            </div>
+            <div class="cerceve">
+
+
+                <p style="color:white">
+                    <i class="fas fa-hotel" style="margin-right: 10px;"><img width="30" height="30" src="https://img.icons8.com/pastel-glyph/300/add-male-user.png" alt="hotel"></i>
+                    <br />
+                    tatilrezarvasyon'a Katıl
+                    Hemen üye ol, indirimleri ve avantajları kaçırma!
+                    <br />
+                    <br />
+                    <button class="uye" onclick="location.href='@Url.Action("KullaniciSignUp","GirişYap")'">Hemen Üye Ol</button>
+                </p>
+
+
+            </div>
+
+        </div>
+        <div class="clear"> </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Tüm Hakları Saklıdır | Daha fazla bilgi alın  <a href="#"> kendi linkini koy </a></p>
+    </div>
+
+</body>
+</html>

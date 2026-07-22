@@ -1,0 +1,28 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model List<Otel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Otel Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>İSİM</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Otel_ID</td>
+            <td>@x.Ad</td>
+            <td><a href="/Admin/OtelSil/@x.Otel_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/OtelGetir/@x.Otel_ID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/YeniOtel/" class="btn btn-success">Yeni Otel</a>
+

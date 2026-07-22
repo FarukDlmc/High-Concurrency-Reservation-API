@@ -1,0 +1,301 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model IEnumerable<TravelTripProje.Models.Sınıflar.Otel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSon.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('@Url.Content("~/template1/images/bg_1.jpg")');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate pb-5 text-center">
+                    <h1 class="mb-3 bread">Oteller</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/Default/Index/">Ana Sayfa <i class="ion-ios-arrow-forward"></i></a></span> <span>Oteller</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        @*Top 4 resim*@
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Best Place Destination</h2>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var x in Model)
+                {
+                    <div class="col-md-3 ftco-animate">
+                        <div class="project-destination">
+                            <a href="/Otel/OtelDetay/@x.Otel_ID" class="img" style="background-image: url('@x.OtelImage');">
+                                <div class="text">
+                                    <h3>@x.Ad</h3>
+                                    <span>@x.Kisi_Basi_Fiyat</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section ftco-no-pt">
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Tour Destination</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-1.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">8 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-2.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">10 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-3.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">7 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-4.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">8 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-5.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">10 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-6.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">7 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-7.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">8 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-8.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">10 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-9.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">7 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-10.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">8 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-11.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">10 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(images/destination-12.jpg);"></a>
+                        <div class="text p-4">
+                            <span class="price">$300/person</span>
+                            <span class="days">7 Days Tour</span>
+                            <h3><a href="#">Bali, Indonesia</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+                            <ul>
+                                <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>
+                                <li><span class="flaticon-mountains"></span>Near Mountain</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27">
+                        <ul>
+                            <li><a href="#">&lt;</a></li>
+                            <li class="active"><span>1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&gt;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> @*görseller ve sayfalama*@
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+                    stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                    stroke="#F96D00" />
+        </svg>
+    </div>
+
+
+    <script src="~/template1/js/jquery.min.js"></script>
+    <script src="~/template1/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/template1/js/popper.min.js"></script>
+    <script src="~/template1/js/bootstrap.min.js"></script>
+    <script src="~/template1/js/jquery.easing.1.3.js"></script>
+    <script src="~/template1/js/jquery.waypoints.min.js"></script>
+    <script src="~/template1/js/jquery.stellar.min.js"></script>
+    <script src="~/template1/js/owl.carousel.min.js"></script>
+    <script src="~/template1/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/template1/js/aos.js"></script>
+    <script src="~/template1/js/jquery.animateNumber.min.js"></script>
+    <script src="~/template1/js/bootstrap-datepicker.js"></script>
+    <script src="~/template1/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/template1/js/google-map.js"></script>
+    <script src="~/template1/js/main.js"></script>
+</body>
+</html>
+
+

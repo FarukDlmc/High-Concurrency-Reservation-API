@@ -1,0 +1,150 @@
+﻿@model TravelTripProje.Models.Sınıflar.Kullanicilar
+
+@{
+    ViewBag.Title = "Bilgilerim";
+    Layout = "~/Views/Shared/_LayoutSon.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+</head>
+<body>
+
+    <br />
+    <h2 class="text-center mt-5" style="margin-top: 50px;">Profiliniz</h2>
+    <div class="hero-wrap js-fullheight" style="background-image: url('@Url.Content("~/template1/images/bg_3.jpg")'); background-size: cover; background-position: center;">
+        <div class="overlay" style="background-color: rgba(0.8, 1, 1.9, 0.5);"></div>
+
+
+        <div class="container" style="margin-top: 50px;">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card p-4 shadow-lg bg-white rounded">
+                        <h4 class="text-center mb-4">Kullanıcı Bilgileriniz</h4>
+
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="alert alert-danger text-center">
+                                @ViewBag.ErrorMessage
+                            </div>
+                        }
+                        @using (Html.BeginForm("Bilgilerim", "Musteri", FormMethod.Post, new { id = "updateForm" }))
+                        {
+                            @Html.HiddenFor(x => x.Kullanici_ID) <!-- Kullanıcı ID'sini gizli bir input ile gönderiyoruz -->
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.AdSoyad, "Ad Soyad")
+                                @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control", id = "adSoyadInput" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Mail, "Mail")
+                                @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Telefon, "Telefon")
+                                @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Sifre, "Şifre")
+                                <div class="input-group">
+                                    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control", id = "sifreInput", type = "password" })
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                                            <i class="fa fa-eye-slash" id="togglePasswordIcon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Bilgilerimi Güncelle</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Sağ Taraf Reklam için -->
+                <div class="col-md-4">
+                    <div class="card p-3 bg-light shadow-sm">
+                        <div class="hero-wrap js-fullheight" style="background-image: url('@Url.Content("~/template1/images/premium.jpg")'); width:310px; height:120px;" data-stellar-background-ratio="0.5">
+                        </div>
+                        <br />
+                        <p class="text-muted text-center">
+                            TatilRezarvasyon Premium konseptimiz ile sizlere ayrıcalıklı bir tatil deneyiminin kapılarını aralıyoruz.
+                            Tamamen size özel ayrıcalıklı hizmetlerimizle tatilinizi planlarken ihtiyaç duyacağınız her konuda destek olacak
+                            özel seyahat danışmanınız, zevkinize ve tercihlerinize uygun yüzlerce konsept ve otel,
+                            ayrıca size her konuda yardımcı olacak özel whatsapp ekibimiz Premium'da sizi bekliyor!
+                        </p>
+                        <a href="#" class="btn btn-warning btn-block">Şimdi Keşfet</a>@*Premium sayfasına yönlendirecek oradan da isterse wp kanalından iletişime geçecek*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Dosyaları -->
+    <script src="~/template1/js/jquery.min.js"></script>
+    <script src="~/template1/js/bootstrap.min.js"></script>
+    <script>
+        // Güncellemeden önce uyarı
+        document.getElementById("updateForm").addEventListener("submit", function (e) {
+            var confirmed = confirm("Bilgilerinizi güncellemek istediğinizden emin misiniz?");
+            if (!confirmed) {
+                e.preventDefault(); // Formun gönderilmesini engelle
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("updateForm").addEventListener("submit", function (e) {
+            // Form elemanlarını al
+            var adSoyad = document.getElementById("adSoyadInput").value.trim();
+            var sifre = document.getElementById("sifreInput").value.trim();
+
+            // Alanları kontrol et
+            if (!adSoyad || !sifre) {
+                e.preventDefault(); // Formun gönderilmesini engelle
+                alert("Ad Soyad ve Şifre alanları boş bırakılamaz.");
+                return;
+            }
+
+            // Güncelleme işlemi için kullanıcıdan onay al
+            var confirmed = confirm("Bilgilerinizi güncellemek istediğinizden emin misiniz?");
+            if (!confirmed) {
+                e.preventDefault(); // Formun gönderilmesini engelle
+            }
+        });
+    </script>
+    <script>
+    document.getElementById("togglePassword").addEventListener("click", function () {
+        const passwordInput = document.getElementById("sifreInput");
+        const passwordIcon = document.getElementById("togglePasswordIcon");
+
+        if (passwordInput.type === "text") {
+            // Şifreyi gizle (yıldızlar ile)
+            const maskedPassword = "*".repeat(passwordInput.value.length + 6); // Şifre uzunluğundan biraz fazla yıldız ekle
+            passwordInput.type = "password";
+            passwordInput.value = maskedPassword;
+            passwordIcon.classList.remove("fa-eye-slash");
+            passwordIcon.classList.add("fa-eye");
+        } else {
+            // Şifreyi göster
+            passwordInput.type = "text";
+            passwordInput.value = "@Model.Sifre"; // Gerçek şifreyi yeniden göster
+            passwordIcon.classList.remove("fa-eye");
+            passwordIcon.classList.add("fa-eye-slash");
+        }
+    });
+    </script>
+
+</body>
+</html>
+

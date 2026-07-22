@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content=" Master  Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/weblogin/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Cormorant+SC:300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/css/stl.css")" />
+
+</head>
+
+<body>
+    <div class="padding-all">
+        <div class="header">
+            <h1>Kayıt Olma</h1>
+        </div>
+
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+                @using (Html.BeginForm("KullaniciSignUp", "GirişYap", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    <input type="text" name="AdSoyad" placeholder="Adınız Soyadınız..." required="" />
+                    <input type="text" name="Mail" placeholder="Mailiniz..." required="" />
+                    <input type="text" name="Telefon" placeholder="Cep Telefonu..." required="" />
+                    <input type="password" name="Sifre" class="padding" placeholder="Şifreniz..." required="" />
+
+                    <br />
+                    <input type="submit" value="Kayıt Ol">
+                }
+            </div>
+            <div class="clear"> </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Tüm Hakları Saklıdır | Daha fazla bilgi alın  <a href="#"> kendi linkini koy </a></p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    // Eğer bir hata mesajı varsa, alert ile göster
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <text>
+            alert('@ViewBag.ErrorMessage');
+        </text>
+    }
+</script>
+

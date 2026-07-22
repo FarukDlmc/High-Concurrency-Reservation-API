@@ -1,0 +1,28 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model List<Tur>
+@{
+    ViewBag.Title = "TurIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Tur Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>İSİM</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Tur_ID</td>
+            <td>@x.Rota</td>
+            <td><a href="/Admin/TurSil/@x.Tur_ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/TurGetir/@x.Tur_ID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/YeniTur/" class="btn btn-success">Yeni Tur</a>
+

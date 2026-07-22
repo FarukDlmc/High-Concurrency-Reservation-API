@@ -1,0 +1,150 @@
+﻿@using TravelTripProje.Models.Sınıflar;
+@model List<Otel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSon.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<body>
+    <div class="hero-wrap js-fullheight" style="background-image: url('@Url.Content("~/template1/images/bg_3.jpg")');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+                        <span class="ion-ios-play"></span>
+                    </a>
+                    <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                        Dünyanın herhangi bir yerine güvenle gidin.
+                    </p>
+                    <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tatilinizi Bizimle <br />Şekillendirin</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="search-wrap-1 ftco-animate p-4">
+                        <form action="#" class="search-property-1">
+                            <div class="row">
+                                <div class="col-lg align-items-end">
+                                    <div class="form-group">
+                                        <label for="#">Varış Yeri</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="ion-ios-search"></span></div>
+                                            <input type="text" class="form-control" placeholder="Yer arayın">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg align-items-end">
+                                    <div class="form-group">
+                                        <label for="#">Gidiş Tarihi</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="ion-ios-calendar"></span></div>
+                                            <input type="text" class="form-control checkin_date" placeholder="Gidiş tarihi">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg align-items-end">
+                                    <div class="form-group">
+                                        <label for="#">Dönüş Tarihi</label>
+                                        <div class="form-field">
+                                            <div class="icon"><span class="ion-ios-calendar"></span></div>
+                                            <input type="text" class="form-control checkout_date" placeholder="Dönüş tarihi">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg align-self-end">
+                                    <div class="form-group">
+                                        <div class="form-field">
+                                            <input type="submit" value="ARA" class="form-control btn btn-primary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br /><br />
+    <section class="ftco-counter" id="section-counter">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-6 d-flex">
+                    <div class="img d-flex align-self-stretch" style="background-image:url('@Url.Content("~/template1/images/about.jpg")'); height:650px;"></div>
+                </div>
+                <div class="col-md-6 pl-md-5 py-5">
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-4">Seyehatinizi Bizimle Unutulmaz ve Güvenli Hale Getirin</h2>
+                            <p>
+                                hikayeleştirerek kendimizi tanıtacağımız bölüm.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="300">0</strong>
+                                    <span>Tur Sayısı</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="24000">0</strong>
+                                    <span>Kullanıcı Sayımız</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="200">0</strong>
+                                    <span>Keşfedilen Yerler</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <br />
+    @*@Html.Action("Partial1", "Default")*@ @*ana sayfada sadece oteller ve turlarla ilgili bloklar yer alacak*@
+    @Html.Action("Partial4", "Default")
+    @Html.Action("Partial3", "Default")
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    <script src="~/template1/js/jquery.min.js"></script>
+    <script src="~/template1/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/template1/js/popper.min.js"></script>
+    <script src="~/template1/js/bootstrap.min.js"></script>
+    <script src="~/template1/js/jquery.easing.1.3.js"></script>
+    <script src="~/template1/js/jquery.waypoints.min.js"></script>
+    <script src="~/template1/js/jquery.stellar.min.js"></script>
+    <script src="~/template1/js/owl.carousel.min.js"></script>
+    <script src="~/template1/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/template1/js/aos.js"></script>
+    <script src="~/template1/js/jquery.animateNumber.min.js"></script>
+    <script src="~/template1/js/bootstrap-datepicker.js"></script>
+    <script src="~/template1/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/template1/js/google-map.js"></script>
+    <script src="~/template1/js/main.js"></script>
+
+</body>
+</html>
+
+

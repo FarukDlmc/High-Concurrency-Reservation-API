@@ -1,0 +1,141 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model KampanyaViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSon.cshtml";
+}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/slider.css")" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="hero-wrap js-fullheight" style="background-image: url('@Url.Content("~/template1/images/bg_3.jpg")');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+                        <span class="ion-ios-play"></span>
+                    </a>
+                    <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+                        Dünyanın herhangi bir yerine güvenle gidin.
+                    </p>
+                    <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tatilinizi Bizimle <br />Şekillendirin</h1>
+                </div>
+            </div>
+        </div>
+    </div> <br />
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Kampanyalar</h2>
+            </div>
+        </div>
+
+        <!-- Otel Slider Başlangıcı -->
+        <div id="otelSlider" class="carousel slide mt-6" data-ride="carousel" style="max-width: 100%;">
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Oteller.Count; i += 3)
+                {
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <div class="row">
+                            @for (int j = i; j < i + 3 && j < Model.Oteller.Count; j++)
+                            {
+                                var otel = Model.Oteller[j];
+                                <div class="col-md-4">
+                                    <div class="project-wrap">
+                                        <a href="/Otel/OtelDetay/@otel.Otel_ID" class="img" style="background-image: url('@otel.OtelImage');height:300px;background-size: cover;"></a>
+                                        <div class="text p-4">
+                                            <h3><a href="#">@otel.Ad</a></h3>
+                                            <p class="location"><span class="ion-ios-map"></span> @otel.Adres</p>
+                                            <p>Kategori: @otel.OtelKategori.otelKategorisi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            <a class="carousel-control-prev" href="#otelSlider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 35px; height: 35px;"></span>
+                <span class="sr-only">Önceki</span>
+            </a>
+            <a class="carousel-control-next" href="#otelSlider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="width: 35px; height: 35px;"></span>
+                <span class="sr-only">Sonraki</span>
+            </a>
+        </div>
+        <!-- Otel Slider Sonu -->
+        <!-- Tur Slider Başlangıcı -->
+        <div id="turSlider" class="carousel slide mt-6" data-ride="carousel" style="max-width: 100%;">
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Turlar.Count; i += 3)
+                {
+                    <div class="carousel-item @(i == 0 ? "active" : "")">
+                        <div class="row">
+                            @for (int j = i; j < i + 3 && j < Model.Turlar.Count; j++)
+                            {
+                                var tur = Model.Turlar[j];
+                                <div class="col-md-4">
+                                    <div class="project-wrap">
+                                        <a href="/Tur/TurDetay/@tur.Tur_ID" class="img" style="background-image: url('@tur.TurImage');height: 300px; background-size: cover;"></a>
+                                        <div class="text p-4">
+                                            <h3><a href="#">@tur.Ad</a></h3>
+                                            <p class="location"><span class="ion-ios-map"></span> @tur.Rota</p>
+                                            <p>Kişi Başı: @tur.Kisi_Basi_Fiyat</p>
+                                            <p>Kategori: @tur.TurKategori.turKategorisi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            <a class="carousel-control-prev" href="#turSlider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 35px; height: 35px;"></span>
+                <span class="sr-only">Önceki</span>
+            </a>
+            <a class="carousel-control-next" href="#turSlider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="width: 35px; height: 35px;"></span>
+                <span class="sr-only">Sonraki</span>
+            </a>
+        </div>
+        <!-- Tur Slider Sonu -->
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 4000 // Otomatik kaydırma süresi (ms cinsinden)
+            });
+        });</script>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    <script src="~/template1/js/jquery.min.js"></script>
+    <script src="~/template1/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/template1/js/popper.min.js"></script>
+    <script src="~/template1/js/bootstrap.min.js"></script>
+    <script src="~/template1/js/jquery.easing.1.3.js"></script>
+    <script src="~/template1/js/jquery.waypoints.min.js"></script>
+    <script src="~/template1/js/jquery.stellar.min.js"></script>
+    <script src="~/template1/js/owl.carousel.min.js"></script>
+    <script src="~/template1/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/template1/js/aos.js"></script>
+    <script src="~/template1/js/jquery.animateNumber.min.js"></script>
+    <script src="~/template1/js/bootstrap-datepicker.js"></script>
+    <script src="~/template1/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/template1/js/google-map.js"></script>
+    <script src="~/template1/js/main.js"></script>
+
+</body>
+</html>
+
+

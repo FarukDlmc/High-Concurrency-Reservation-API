@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Şifre Yenileme</title>
+    <link href="~/weblogin/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .password-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+            .password-container input {
+                flex: 1;
+            }
+
+            .password-container .toggle-password {
+                margin-left: 10px;
+                cursor: pointer;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="padding-all">
+        <div class="header">
+            <h1>Şifre Yenileme</h1>
+        </div>
+
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+                @using (Html.BeginForm("SifreUnuttum", "GirişYap", FormMethod.Post))
+                {
+                    <input type="email" name="Mail" placeholder="Mail Adresiniz..." required />
+                    <br />
+                    // <input type="text" name="AnahtarKelime" placeholder="Anahtar Kelime..." required />
+                    <br />
+                    <div class="password-container">
+                        <input type="password" name="YeniSifre" class="password-field" placeholder="Yeni Şifre..." required />
+                        <span class="toggle-password">O_O</span>
+                    </div>
+                    <div class="password-container">
+                        <input type="password" name="YeniSifreTekrar" class="password-field" placeholder="Yeni Şifre Tekrar..." required />
+                        <span class="toggle-password">O_O</span>
+                    </div>
+                    <br />
+                    <input type="submit" value="Kaydet" />
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Tüm Hakları Saklıdır | Daha fazla bilgi alın <a href="#"> kendi linkini koy </a></p>
+    </div>
+
+    <script>
+        // Şifre Göster/Gizle
+        $(document).on('click', '.toggle-password', function () {
+            var input = $(this).prev('.password-field');
+            if (input.attr('type') === 'password') {
+                input.attr('type', 'text');
+                $(this).text('-_-'); // Göz kapalı simgesi >>🔒 buda olabilir ama ben her ikisi için basit ve anlaşılır bir şey olmasını isterim
+            } else {
+                input.attr('type', 'password');
+                $(this).text('O_O'); // Göz açık simgesi   >>👁️ buda olabilir
+            }
+        });
+
+    // Eğer bir hata mesajı varsa, alert ile göster
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <text>
+        alert('@ViewBag.ErrorMessage');
+        </text>
+    }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+﻿@using TravelTripProje.Models.Sınıflar;
+@model List<Otel>
+<div class="con-bot">
+
+    <div class="container" style="margin-top:75px">
+        <div class="row" style="display: flex; gap: 20px;">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">En Popüler Mekanlar</h2>
+            </div>
+            @foreach (var x in Model)
+            {
+                <div class="row">
+                    <div class="col-md-3 ftco-animate">
+                        <div class="project-destination">
+                            <a href="/Otel/OtelDetay/@x.Otel_ID" class="img" style="background-image: url('@x.OtelImage');width: 255px; height: 250px;">
+                                <div class="text">
+                                    <h3>@x.Ad</h3>
+                                    @*<span>@x.Tarih.ToString("dd:MM:yyyy")</span>*@
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            }
+        </div>
+    </div>
+</div>

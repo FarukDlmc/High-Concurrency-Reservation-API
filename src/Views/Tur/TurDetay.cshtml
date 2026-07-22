@@ -1,0 +1,124 @@
+﻿@model TravelTripProje.Models.Sınıflar.TurYorum
+@{
+    ViewBag.Title = "TurDetay";
+    Layout = "~/Views/Shared/_LayoutSon.cshtml";
+}
+
+<!DOCTYPE HTML>
+<br />
+<br />
+<br />
+<html>
+<head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
+    <link href="@Url.Content("~/web2/css/bootstrap.css")" rel='stylesheet' type='text/css' />
+    <link href="@Url.Content("~/web2/css/style.css")" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/Derecelendirme.css")" />
+</head>
+<body>
+    <!---header---->
+    <div class="header">
+    </div>
+    <!--/header-->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                <div class="single-grid">
+                    @foreach (var x in Model.Deger1)
+                    {
+                        <img src="@x.TurImage" alt="" style="margin-bottom:20px; width: 700px; height: 460px;" />
+                        <h2>@x.Ad</h2>
+                        <p><strong>Rota:</strong>@x.Rota</p>
+                    }
+                </div>
+                @foreach (var y in Model.Deger2)
+                {
+                    <ul class="comment-list">
+                        <li>
+                            <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+                            <div class="desc">
+                                <p><strong>@y.KullaniciAdSoyad:</strong></p>
+                                <p>@y.Yorum</p>
+                                <p><small>@y.YorumTarihi.ToString("dd MMMM yyyy HH:mm")</small></p>
+                                <p>
+                                    <small>
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= y.Yildiz)
+                                            {
+                                                <span style="color: gold;">★</span> <!-- Dolu yıldız -->
+                                            }
+                                            else
+                                            {
+                                                <span style="color: lightgray;">★</span> <!-- Boş yıldız -->
+                                            }
+                                        }
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                }
+                @Html.Action("YorumYap", "Tur")
+            </div>
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3>SON TURLAR</h3>
+                    <ul>
+                        @foreach (var x in Model.SonTurlar)
+                        {
+                            <li><a href="@Url.Action("TurDetay","Tur",new {id=x.Tur_ID})">@x.Ad</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>SON YORUMLAR</h3>
+                    <ul>
+                        @if (Model.SonYorumlar != null && Model.SonYorumlar.Any())
+                        {
+                            foreach (var x in Model.SonYorumlar)
+                            {
+                                <li>
+                                    <strong>@x.KullaniciAdSoyad</strong>
+                                    dedi ki:
+                                    <p>@x.Yorum</p>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>
+                            <p>Henüz yorum yapılmamış.</p>
+                            <p>İlk yorum yapan siz olun!</p>
+                        </li>
+                    }
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <script>
+        function showFullYorum(id) {
+            // Yorumu tam olarak göster
+            const yorumElement = document.getElementById("yorum-" + id);
+            const fullYorum = yorumElement.getAttribute("data-full");
+            yorumElement.innerHTML = fullYorum; // Yorumu tamamen değiştir
+        }
+    </script>
+</body>
+</html>
+

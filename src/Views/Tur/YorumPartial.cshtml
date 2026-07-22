@@ -1,0 +1,31 @@
+﻿@model dynamic
+
+<div class="card border-0 shadow-sm mb-3">
+    <div class="card-body">
+        <div class="rate-yellow">
+            @if (Model != null && Model.rating != null)
+            {
+                for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Model.rating)
+                    {
+                        <small class="bi bi-star-fill"></small>
+                    }
+                    else
+                    {
+                        <small class="bi bi-star"></small>
+                    }
+                }
+            }
+            else
+            {
+                <small class="text-muted">Puan verilmedi</small>
+            }
+        </div>
+        <p>@(Model?.comment ?? "Yorum yok")</p>
+        <div class="text-muted fs-6 mb-3">
+            @(Model?.userName ?? "Bilinmeyen Kullanıcı"),
+            @(Model?.date ?? DateTime.Now.ToString("dd/MM/yyyy"))
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model List<TravelTripProje.Models.Sınıflar.YorumViewModel>
+<section class="ftco-section testimony-section bg-bottom" style="background-image: url('@Url.Content("~/template1/images/bg_3.jpg")');">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <h2 class="mb-4">Otel Yorumları</h2>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    @foreach (var yorum in Model)
+                    {
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="text">
+                                    <p class="mb-4">@yorum.Yorum</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img" style="background-image: url('@Url.Content("~/template1/images/person_1.jpg")');"></div>
+                                        <div class="pl-3">
+                                            <p class="name">@yorum.KullaniciAdSoyad</p>
+                                            <span class="position">@yorum.OtelAdi</span>
+                                            <div class="stars">
+                                                @for (int i = 0; i < 5; i++)
+                                                {
+                                                    if (i < yorum.Yildiz)
+                                                    {
+                                                        <span class="star">&#9733;</span> <!-- ⭐ -->
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="star">&#9734;</span> <!-- ☆ -->
+                                                    }
+                                                }
+                                            </div>
+                                            <span class="position">@yorum.YorumTarihi.ToString("dd/MM/yyyy")</span>
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("OtelDetay", "Otel", new { id = yorum.Otel_ID })" class="btn btn-primary">Devamını Oku</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

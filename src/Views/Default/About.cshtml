@@ -1,0 +1,285 @@
+﻿@model TravelTripProje.Models.Sınıflar.AboutViewModel
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_LayoutSon.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .testimony-wrap {
+            min-height: 300px; /* Minimum yükseklik */
+            max-height: 300px; /* Sabit yükseklik */
+            overflow: hidden; /* Taşan içeriği gizle */
+            text-overflow: ellipsis; /* Uzun metinlerde '...' göstermek için */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* İçerik arasında eşit boşluk bırak */
+        }
+
+            .testimony-wrap .text {
+                flex-grow: 1; /* İçeriğin alanı doldurmasını sağlar */
+            }
+
+            .testimony-wrap p.mb-4 {
+                max-height: 100px; /* Yorum metninin yüksekliği */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal; /* Çok satırlı kesme */
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* 3 satırda kes */
+                -webkit-box-orient: vertical;
+            }
+    </style>
+    <link rel="stylesheet" href="@Url.Content("~/template1/css/slider.css")" />
+</head>
+<body>
+
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('@Url.Content("~/template1/images/hakkimizda.png")');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate pb-5 text-center">
+                    <h1 class="mb-3 bread">Hakkımızda</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/Default/Index">Ana Sayfa <i class="ion-ios-arrow-forward"></i></a></span> <span>Hakkımızda <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section services-section bg-light">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate">
+                    <h2 class="mb-4">
+                        Yeni maceraları keşfetmenin tam zamanı
+                    </h2>
+                    <p>
+
+                        Yenilikçi sistemlerimizle misafirlerimize unutulmaz seyahat deneyimleri yaşatmayı bir sanat haline getiriyoruz.
+                        "Doğrusunu İsterseniz" sloganıyla yola çıkarak, sadece bir hizmet değil, aynı zamanda beklentilerin çok ötesinde bir misafirperverlik sunmayı hedefliyoruz.
+                        Her detayda mükemmelliği yakalayan anlayışımızla tatilinizi sıradanlıktan uzak, benzersiz bir anıya dönüştürüyoruz.
+                    </p>
+                    <p>Mottomuz: Hoş Geldiniz, Sefalar Getirdiniz!</p>
+                    <p><a href="/Default/Index" class="btn btn-primary py-3 px-4">Keşfetmeye Başla</a></p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-block">
+                                <div class="icon"><span class="flaticon-paragliding"></span></div>
+                                <div class="media-body">
+                                    <h3 class="heading mb-3">Aktiviteler</h3>
+                                    <p>Her zevke hitap eden unutulmaz deneyimler ve eşsiz aktiviteler yaşamak için geç kalmayın.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-block">
+                                <div class="icon"><span class="flaticon-route"></span></div>
+                                <div class="media-body">
+                                    <h3 class="heading mb-3">Seyahat Planı</h3>
+                                    <p>Seyahat planınızı, tatilinizi keyifli ve unutulmaz kılmak için bizimle birlikte şekillendirin.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-block">
+                                <div class="icon"><span class="flaticon-tour-guide"></span></div>
+                                <div class="media-body">
+                                    <h3 class="heading mb-3">Özel Seyehat Danışmanı</h3>
+                                    <p>Siz düşünmeyin, biz her detayı planlayalım; size sadece anın keyfini çıkarmak kalsın.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                            <div class="media block-6 services d-block">
+                                <div class="icon"><span class="flaticon-map"></span></div>
+                                <div class="media-body">
+                                    <h3 class="heading mb-3">Seyahat Rotalarınız</h3>
+                                    <p>Seyahat rotalarınız, keşfedeceğiniz benzersiz bölgelerle dolu bir yolculuğa çıkmanız için özenle hazırlanmıştır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-counter img" id="section-counter">
+        <div class="container">
+            <div class="row d-flex">
+
+                <div class="col-md-6 d-flex">
+                    <div class="img d-flex align-self-stretch" style="background-image: url('@Url.Content("~/template1/images/about.jpg")');"></div>
+                </div>
+                <div class="col-md-6 pl-md-5 py-5">
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-4">Sizde turunuzu bizimle unutulmaz ve güvenli bir deneyime dönüştürün.</h2>
+                            <p>Milyonlarca Anı, Birlikte Yazdık.</p>
+                            <p>
+                                300 mutlu müşterimizle birlikte, 200 farklı rotaya adım atarak 24.000'den fazla kişiye unutulmaz seyahat deneyimi yaşattık.
+                                Her bir seyahat, sizin için özel bir deneyim olurken bizler içinde birer tecrübe oldu.
+                                Bizimle seyahat etmek, sadece bir yerden bir yere gitmek değil, unutulmaz anılar biriktirmek demek.
+                                [Site Adı] ile hayallerinizi keşfedin.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="300">0</strong>
+                                    <span>Tur Sayısı</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="24000">0</strong>
+                                    <span>Kullanıcı Sayımız</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="200">0</strong>
+                                    <span>Keşfedilen Yerler</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section testimony-section bg-bottom" style="background-image: url('@Url.Content("~/template1/images/bg_3.jpg")');">
+        <div class="container">
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-4">Otel Yorumları</h2>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        @foreach (var yorum in Model.OtelYorumlar)
+                        {
+                            <div class="item">
+                                <div class="testimony-wrap py-4">
+                                    <div class="text">
+                                        <p class="mb-4">@yorum.Yorum</p>
+                                        <div class="d-flex align-items-center">
+                                            <div class="user-img" style="background-image: url('@Url.Content("~/template1/images/person_1.jpg")');"></div>
+                                            <div class="pl-3">
+                                                <p class="name">@yorum.KullaniciAdSoyad</p>
+                                                <span class="position">@yorum.OtelAdi</span>
+                                                <div class="stars">
+                                                    @for (int i = 0; i < 5; i++)
+                                                    {
+                                                        if (i < yorum.Yildiz)
+                                                        {
+                                                            <span class="star">&#9733;</span> <!-- ⭐ -->
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="star">&#9734;</span> <!-- ☆ -->
+                                                        }
+                                                    }
+                                                </div>
+                                                <span class="position">@yorum.YorumTarihi.ToString("dd/MM/yyyy")</span>
+                                            </div>
+                                        </div>
+                                        <a href="@Url.Action("OtelDetay", "Otel", new { id = yorum.Otel_ID })" class="btn btn-primary">Devamını Oku</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- Tur Yorumları-->
+            <div class="row justify-content-center pb-4">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-4">Tur Yorumları</h2>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        @foreach (var yorum in Model.TurYorumlar)
+                        {
+                            <div class="item">
+                                <div class="testimony-wrap py-4">
+                                    <div class="text">
+                                        <p class="mb-4">@yorum.Yorum</p>
+                                        <div class="d-flex align-items-center">
+                                            <div class="user-img" style="background-image: url('@Url.Content("~/template1/images/person_2.jpg")');"></div>
+                                            <div class="pl-3">
+                                                <p class="name">@yorum.KullaniciAdSoyad</p>
+                                                <span class="position">@yorum.TurAdi</span>
+                                                <div class="stars">
+                                                    @for (int i = 0; i < 5; i++)
+                                                    {
+                                                        if (i < yorum.Yildiz)
+                                                        {
+                                                            <span class="star">&#9733;</span> <!-- ⭐ -->
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="star">&#9734;</span> <!-- ☆ -->
+                                                        }
+                                                    }
+                                                </div>
+                                                <span class="position">@yorum.YorumTarihi.ToString("dd/MM/yyyy")</span>
+                                            </div>
+                                        </div>
+                                        <a href="@Url.Action("TurDetay", "Tur", new { id = yorum.Tur_ID })" class="btn btn-primary">Devamını Oku</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    <script src="~/template1/js/jquery.min.js"></script>
+    <script src="~/template1/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/template1/js/popper.min.js"></script>
+    <script src="~/template1/js/bootstrap.min.js"></script>
+    <script src="~/template1/js/jquery.easing.1.3.js"></script>
+    <script src="~/template1/js/jquery.waypoints.min.js"></script>
+    <script src="~/template1/js/jquery.stellar.min.js"></script>
+    <script src="~/template1/js/owl.carousel.min.js"></script>
+    <script src="~/template1/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/template1/js/aos.js"></script>
+    <script src="~/template1/js/jquery.animateNumber.min.js"></script>
+    <script src="~/template1/js/bootstrap-datepicker.js"></script>
+    <script src="~/template1/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/template1/js/google-map.js"></script>
+    <script src="~/template1/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".carousel-testimony").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,  // 5 saniye
+                autoplayHoverPause: true
+            });
+        });
+    </script>
+</body>
+</html>
+
+
